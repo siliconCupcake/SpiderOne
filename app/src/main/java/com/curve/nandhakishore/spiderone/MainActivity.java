@@ -1,12 +1,16 @@
 package com.curve.nandhakishore.spiderone;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -14,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 
 import java.util.ArrayList;
@@ -30,13 +35,15 @@ public class MainActivity extends Activity {
 
         final EditText textAdd = (EditText) findViewById(R.id.editText_add);
         final EditText textRem = (EditText) findViewById(R.id.editText_rem);
-        Button buttonAdd = (Button) findViewById(R.id.button_add);
-        Button buttonRem = (Button) findViewById(R.id.button_rem);
+        final Button buttonAdd = (Button) findViewById(R.id.button_add);
+        final Button buttonRem = (Button) findViewById(R.id.button_rem);
 
         ListView list_todo = (ListView)findViewById(R.id.list_todo);
         final todoAdapter list_adapter= new todoAdapter(getApplicationContext(),items);
         list_todo.setAdapter(list_adapter);
 
+
+        list_adapter.notifyDataSetChanged();
         buttonAdd.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -69,6 +76,30 @@ public class MainActivity extends Activity {
                     list_adapter.notifyDataSetChanged();
                     textRem.setText(null);
                 }
+            }
+        });
+
+        textAdd.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                boolean handled = false;
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    buttonAdd.performClick();
+                    handled = true;
+                }
+                return handled;
+            }
+        });
+
+        textRem.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                boolean handled = false;
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    buttonRem.performClick();
+                    handled = true;
+                }
+                return handled;
             }
         });
 

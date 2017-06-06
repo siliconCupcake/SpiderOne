@@ -15,7 +15,10 @@
         <EditText
             android:layout_width="0dp"
             android:id="@+id/editText_add"
-            android:layout_weight="8"
+            android:layout_weight="7"
+            android:inputType="text"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
             android:hint="Enter item to add"
             android:layout_height="match_parent" />
         <Button
@@ -23,15 +26,8 @@
             android:layout_width="0dp"
             android:text="Add"
             android:layout_height="match_parent"
-            android:layout_weight="2"/>
+            android:layout_weight="3"/>
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/list_todo"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="80">
-    </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,8 +38,10 @@
         <EditText
             android:layout_width="0dp"
             android:id="@+id/editText_rem"
-            android:layout_weight="8"
+            android:layout_weight="7"
             android:inputType="numberDecimal"
+            android:maxLines="1"
+            android:imeOptions="actionDone"
             android:hint="Enter position to remove"
             android:layout_height="match_parent" />
         <Button
@@ -51,7 +49,13 @@
             android:id="@+id/button_rem"
             android:layout_height="match_parent"
             android:text="Remove"
-            android:layout_weight="2"/>
+            android:layout_weight="3"/>
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_todo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"> </ListView>
 
 </LinearLayout>
