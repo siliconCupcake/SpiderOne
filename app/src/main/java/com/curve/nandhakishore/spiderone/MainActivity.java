@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -112,5 +113,16 @@ public class MainActivity extends Activity {
                 startActivity(send_name);
             }
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        ListView list_todo = (ListView)findViewById(R.id.list_todo);
+        final todoAdapter list_adapter= new todoAdapter(getApplicationContext(),items);
+        list_todo.setAdapter(list_adapter);
+        
+        list_adapter.notifyDataSetChanged();
+
     }
 }
