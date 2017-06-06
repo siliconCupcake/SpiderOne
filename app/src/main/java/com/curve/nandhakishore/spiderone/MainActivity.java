@@ -121,7 +121,6 @@ public class MainActivity extends Activity {
         ListView list_todo = (ListView)findViewById(R.id.list_todo);
         final todoAdapter list_adapter= new todoAdapter(getApplicationContext(),items);
         list_todo.setAdapter(list_adapter);
-        
         list_adapter.notifyDataSetChanged();
 
     }
