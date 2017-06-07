@@ -114,14 +114,4 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        ListView list_todo = (ListView)findViewById(R.id.list_todo);
-        final todoAdapter list_adapter= new todoAdapter(getApplicationContext(),items);
-        list_todo.setAdapter(list_adapter);
-        list_adapter.notifyDataSetChanged();
-
-    }
 }

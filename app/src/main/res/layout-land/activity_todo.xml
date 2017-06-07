@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="20"
         android:id="@+id/linearAdd"
         android:weightSum="10"
         android:orientation="horizontal"
@@ -32,7 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="20"
         android:id="@+id/linearRem"
         >
         <EditText
@@ -56,6 +56,6 @@
         android:id="@+id/list_todo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="80"> </ListView>
+        android:layout_weight="60"> </ListView>
 
 </LinearLayout>
